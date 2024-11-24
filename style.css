@@ -1,0 +1,169 @@
+/* Stili per la home page e altre sezioni */
+/* Corpo del sito */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Intestazione */
+header {
+    background-color: #ff5a5f; /* Colore caratteristico di Airbnb */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #ff385c;
+}
+
+/* Titoli */
+h1, h2 {
+    font-weight: bold;
+    color: #333;
+    font-size: 2rem; /* Utilizzo di rem per adattare la dimensione */
+}
+
+/* Paragrafi */
+p {
+    font-size: 1rem; /* Utilizzo di rem per adattare la dimensione */
+    line-height: 1.6;
+}
+
+/* Sezione delle bandiere */
+.flag-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Testo nella sezione bandiere */
+.flag-section p {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333; /* Colore del testo */
+}
+
+/* Stile delle immagini delle bandiere */
+.flag-images {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Spaziatura tra le immagini */
+    flex-wrap: wrap; /* Permette di andare a capo su schermi piccoli */
+}
+
+.flag-icon {
+    width: 40px; /* Dimensione delle bandiere */
+    height: auto;
+    border-radius: 5px; /* Arrotonda leggermente le immagini */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aggiunge una piccola ombra */
+    transition: transform 0.3s ease; /* Animazione al passaggio del mouse */
+}
+
+.flag-icon:hover {
+    transform: scale(1.1); /* Ingrandisce leggermente al passaggio del mouse */
+}
+
+/* Griglia per i video */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 20px;
+    margin-top: 20px;
+    padding: 0 20px; /* Spaziatura orizzontale */
+}
+
+.video-grid figure {
+    text-align: center;
+    margin: 0;
+}
+
+.video-grid video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Arrotonda i bordi dei video */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+.video-grid figcaption {
+    margin-top: 8px;
+    font-size: 0.875rem; /* Font-size adattabile */
+    color: #555;
+}
+
+/* Bottone in stile Airbnb */
+.btn-link {
+    display: center;
+    background-color: #ff5a5f;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-link:hover {
+    background-color: #ff385c;
+}
+
+/* Stile della sezione attrazioni */
+.attractions-slider {
+    width: 90%; /* Larghezza del contenitore dello slider, leggermente più ampia per schermi più piccoli */
+    margin: 0 auto; /* Per centrare lo slider sulla pagina */
+    max-width: 1200px; /* Limite di larghezza massima per grandi schermi */
+}
+
+/* Stile per le immagini delle attrazioni */
+.attraction-image {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+/* Stile per il footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.875rem;
+}
+
+/* Media Queries per adattarsi a diverse dimensioni dello schermo */
+@media (max-width: 768px) {
+    h1, h2 {
+        font-size: 1.75rem; /* Riduce i titoli su schermi più piccoli */
+    }
+
+    .btn-link {
+        padding: 10px 20px; /* Riduce il padding del bottone su schermi piccoli */
+    }
+
+    .attraction-image {
+        max-height: 150px; /* Diminuisce l'altezza delle immagini su schermi piccoli */
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2 {
+        font-size: 1.5rem; /* Titoli più piccoli su schermi molto piccoli */
+    }
+
+    .btn-link {
+        font-size: 14px; /* Bottone più piccolo su schermi piccoli */
+        padding: 8px 16px;
+    }
+
+    .flag-images {
+        gap: 10px; /* Riduce la spaziatura tra le bandiere su schermi piccoli */
+    }
+
+    .flag-icon {
+        width: 30px; /* Riduce la dimensione delle bandiere su schermi piccoli */
+    }
+}
