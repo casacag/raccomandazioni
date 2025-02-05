@@ -1,5 +1,224 @@
 /* Stili per la home page e altre sezioni */
+#main-content.blur {
+    filter: blur(5px);
+    pointer-events: none; /* Disabilita le interazioni */
+}
+/* Sfoca solo il contenuto principale, non il pop-up */
+#main-content.blur {
+    filter: blur(5px);
+    pointer-events: none; /* Disabilita le interazioni */
+}
+
+/* Overlay per bloccare l'interazione fino alla scelta */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+  .popup, .popup-image {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .popup-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  #modal-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #ff385c;
+    color: #fff;
+    text-decoration: none;
+    text-emphasis-color: #fff;
+    border-radius: 5px;
+  }
+  #close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+/* Stile per le bandiere */
+.flag-icon {
+    width: 50px;  /* Larghezza della bandiera */
+    height: auto; /* Mantiene le proporzioni */
+    margin: 10px; /* Spaziatura attorno alle bandiere */
+    cursor: pointer; /* Cambia il cursore su hover */
+}
+
+.vacation-option {
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.vacation-option:hover {
+    background-color: #ff385c;
+}
+
+/* Griglia di immagini */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.image-grid a {
+    display: block;
+    margin: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-grid img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-grid a:hover img {
+    transform: scale(1.05);
+}
+
+.image-grid figure {
+    margin: 10px;
+    text-align: center; /* Centra le didascalie sotto le immagini */
+}
+
+.image-grid figcaption {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333; /* Colore del testo delle didascalie */
+}
+/* Overlay per bloccare l'interazione fino alla scelta */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Sfondo scuro trasparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none; /* Nascondi di default */
+}
+
+/* Stile del pop-up */
+.popup {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 90%; /* Limita la larghezza massima del pop-up */
+    max-height: 90%; /* Limita l'altezza massima del pop-up */
+    overflow: hidden; /* Impedisce l'overflow del contenuto */
+}
+
+
+/* Stile del pop-up */
+.popup {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Stile per le bandiere */
+.flag-icon {
+    width: 50px;  /* Larghezza della bandiera */
+    height: auto; /* Mantiene le proporzioni */
+    margin: 10px; /* Spaziatura attorno alle bandiere */
+    cursor: pointer; /* Cambia il cursore su hover */
+}
+
+.vacation-option {
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.vacation-option:hover {
+    background-color: #ff385c;
+}
+
+/* Griglia di immagini */
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.image-grid a {
+    display: block;
+    margin: 10px;
+    transition: transform 0.3s ease;
+}
+
+.image-grid img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.image-grid a:hover img {
+    transform: scale(1.05);
+}
+
+.image-grid figure {
+    margin: 10px;
+    text-align: center; /* Centra le didascalie sotto le immagini */
+}
+
+.image-grid figcaption {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333; /* Colore del testo delle didascalie */
+}
+#image-modal {
+    display: none;
+    z-index: 1500;
+    justify-content: center;
+    align-items: center;
+}
+
+#image-modal .popup {
+    position: relative;
+    max-width: 600px;
+    width: 90%;
+}
 /* Corpo del sito */
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f7f7f7;
@@ -167,3 +386,119 @@ footer {
         width: 30px; /* Riduce la dimensione delle bandiere su schermi piccoli */
     }
 }
+/* Overlay del modale */
+.popup-image {
+    position: relative;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#image-modal {
+    display: none; /* Nascondi il modale inizialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Stile del pop-up */
+#image-modal .popup {
+    position: relative;
+    max-width: 90%; /* Imposta una larghezza massima del 90% */
+    max-height: 90%; /* Imposta un'altezza massima del 90% */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* Modale immagine */
+#image-modal {
+    display: none; /* Rimuovi il modale di default */
+    position: fixed; /* Posizione fissa rispetto alla finestra */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Sfondo scuro trasparente */
+    display: flex; /* Usato per centrare il contenuto */
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    z-index: 1500; /* Assicurati che il modale stia sopra al contenuto */
+}
+
+/* Stile per il contenitore del pop-up */
+#image-modal .popup {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%; /* Imposta una larghezza massima del 90% */
+    max-height: 90%; /* Imposta un'altezza massima del 90% */
+    overflow: hidden; /* Evita che il contenuto esca fuori dal pop-up */
+}
+
+/* Assicurati che l'immagine nel modale si adatti al contenitore */
+#modal-image {
+    width: 100%;
+    height: auto; /* Mantieni le proporzioni */
+    max-width: 100%; /* Non superare mai la larghezza del pop-up */
+    max-height: 80vh; /* Limita l'altezza massima a 80% della finestra */
+    object-fit: contain; /* Mantieni l'immagine nelle proporzioni corrette */
+}
+
+/* Gestione del testo e del link sotto l'immagine */
+#modal-description {
+    margin-top: 15px;
+    font-size: 16px;
+    text-align: center;
+}
+
+#modal-link {
+    color: #007BFF;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+/* Pulsante di chiusura */
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Chiusura modale quando si clicca fuori dall'immagine */
+#image-modal {
+    cursor: pointer; /* Cambia il cursore per indicare che è cliccabile */
+}
+
+/* Quando si clicca sul modale, non chiuderlo se si clicca sul contenuto (per evitare chiusure accidentali) */
+#image-modal .popup {
+    cursor: default;
+}
+
+

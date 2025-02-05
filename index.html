@@ -1,307 +1,68 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Mio Viaggio</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Sfoca solo il contenuto principale, non il pop-up */
-        #main-content.blur {
-            filter: blur(5px);
-            pointer-events: none; /* Disabilita le interazioni */
-        }
-
-        /* Overlay per bloccare l'interazione fino alla scelta */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Sfondo scuro trasparente */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            display: none; /* Nascondi di default */
-        }
-
-        /* Stile del pop-up */
-        .popup {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Stile per le bandiere */
-        .flag-icon {
-            width: 50px;  /* Larghezza della bandiera */
-            height: auto; /* Mantiene le proporzioni */
-            margin: 10px; /* Spaziatura attorno alle bandiere */
-            cursor: pointer; /* Cambia il cursore su hover */
-        }
-
-        .vacation-option {
-            background-color: #ff5a5f;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            margin: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 25px;
-            transition: background-color 0.3s ease;
-        }
-
-        .vacation-option:hover {
-            background-color: #ff385c;
-        }
-
-        /* Griglia di immagini */
-        .image-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .image-grid a {
-            display: block;
-            margin: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .image-grid img {
-            width: 250px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .image-grid a:hover img {
-            transform: scale(1.05);
-        }
-
-        .image-grid figure {
-            margin: 10px;
-            text-align: center; /* Centra le didascalie sotto le immagini */
-        }
-
-        .image-grid figcaption {
-            margin-top: 5px;
-            font-size: 14px;
-            color: #333; /* Colore del testo delle didascalie */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Il Mio Viaggio</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Overlay che sfoca tutto eccetto il pop-up -->
-    <div id="overlay" class="overlay">
-        <div id="vacation-popup" class="popup">
-            <div>
-                <h2>Scegli la tua Lingua</h2>
-                <img src="italiano.png" alt="Italiano" class="flag-icon" data-lang="it">
-                <img src="inglese.png" alt="Inglese" class="flag-icon" data-lang="en">
-                <img src="francese.png" alt="Francese" class="flag-icon" data-lang="fr">
-                <img src="spagnolo.png" alt="Spagnolo" class="flag-icon" data-lang="es">
-                <img src="portoghese.png" alt="Portoghese" class="flag-icon" data-lang="pt">
-            </div>
-            <h2>Scegli il tipo di Vacanza</h2>
-            <button class="vacation-option" data-vacation="avventura">Avventura</button>
-            <button class="vacation-option" data-vacation="cultura">Cultura</button>
-            <button class="vacation-option" data-vacation="relax">Relax</button>
-        </div>
+  <!-- Overlay che sfoca tutto eccetto il pop-up -->
+  <div id="overlay" class="overlay">
+    <div id="vacation-popup" class="popup">
+      <div>
+        <h2>Scegli la tua Lingua</h2>
+        <img src="italiano.png" alt="Italiano" class="flag-icon" data-lang="it">
+        <img src="inglese.png" alt="Inglese" class="flag-icon" data-lang="en">
+        <img src="francese.png" alt="Francese" class="flag-icon" data-lang="fr">
+        <img src="spagnolo.png" alt="Spagnolo" class="flag-icon" data-lang="es">
+        <img src="portoghese.png" alt="Portoghese" class="flag-icon" data-lang="pt">
+      </div>
+      <h2>Scegli il tipo di Vacanza</h2>
+      <button class="vacation-option" data-vacation="avventura">Avventura</button>
+      <button class="vacation-option" data-vacation="cultura">Cultura</button>
+      <button class="vacation-option" data-vacation="relax">Relax</button>
     </div>
+  </div>
 
-    <div id="main-content">
-        <header>
-            <h1>Il Mio Viaggio</h1>
-            <p>Scegli il tipo di vacanza che desideri e scopri cosa Cagliari ha da offrire!</p>
-        </header>
+  <div id="main-content">
+    <header>
+      <h1>Il Mio Viaggio</h1>
+      <p>Scegli il tipo di vacanza che desideri e scopri cosa Cagliari ha da offrire!</p>
+    </header>
 
-        <!-- Sezione che mostra le raccomandazioni e le immagini con i link -->
-        <section id="suggestions">
-            <h2>Le Tue Raccomandazioni</h2>
-            <div id="vacation-content">
-                <!-- Contenuti dinamici e immagini a seconda della scelta -->
-            </div>
-        </section>
+    <!-- Sezione che mostra le raccomandazioni e le immagini con i link -->
+    <section id="suggestions">
+      <h2>Le Tue Raccomandazioni</h2>
+      <div id="vacation-content">
+        <!-- Contenuti dinamici e immagini a seconda della scelta -->
+      </div>
+    </section>
 
-        <section id="home">
-            
-        </section>
-        <footer>
-            <p id="footerMessage">CAGLIARI</p>
-        </footer>
+    <section id="home">
+      <!-- eventuali altri contenuti -->
+    </section>
+    <footer>
+      <p id="footerMessage">CAGLIARI</p>
+    </footer>
+  </div>
+
+  <!-- Modale per l'immagine ingrandita -->
+  <div id="image-modal" class="overlay">
+    <div class="popup-image">
+      <span id="close-modal">X</span>
+      <img id="modal-image" src="logo_sito.png" alt="WELCOME">
+      <div id="modal-description">WELCOME</div>
+      <!-- Bottone per andare al sito relativo -->
+      <a id="modal-link" href="#" class="btn"></a>
     </div>
+  </div>
 
-    <script>
-        $(document).ready(function() {
-            // Mostra l'overlay e sfoca il contenuto principale
-            $('#overlay').fadeIn();
-            $('#main-content').addClass('blur');
-
-            // Funzione per caricare la traduzione
-            function loadTranslation(lang) {
-                $.getJSON(lang + ".json", function(data) {
-                    $('#vacation-popup h2:first').text(data.chooseLanguage);
-                    $('#vacation-popup h2:last').text(data.chooseVacationType);
-                    $('.vacation-option[data-vacation="avventura"]').text(data.adventure);
-                    $('.vacation-option[data-vacation="cultura"]').text(data.culture);
-                    $('.vacation-option[data-vacation="relax"]').text(data.relax);
-                    $('header h1').text(data.headerTitle);
-                    $('header p').text(data.headerSubtitle);
-                    $('#suggestions h2').text(data.yourRecommendations);
-                    $('#home a').text(data.home);
-                    $('footerMessage p').text(data.footerMesssage);
-
-                    // Funzioni per aggiornare i contenuti basati sulla scelta della vacanza
-                    $('.vacation-option').off('click').on('click', function() {
-                        const vacationType = $(this).data('vacation');
-                        let content = '';
-
-                        if (vacationType === 'avventura') {
-                            content = `
-                                <p>${data.exploreAdventure}</p>
-                                <div class="image-grid">
-                                    <figure>
-                                        <a href="https://savanzadaclimbing.it/">
-                                            <img src="viaggio_avventura/arrampicata.jpeg" alt="Arrampicata">
-                                            <figcaption>S'avanzada</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.easycletta.it/it/">
-                                            <img src="viaggio_avventura/bici.jpg" alt="bici">
-                                            <figcaption>Easycletta</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.windsurfingclub.it/">
-                                            <img src="viaggio_avventura/windsurf.jpg" alt="windsurf">
-                                            <figcaption>Windsurf</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.nautal.com/it/noleggio-barche/ricerca?priceTo=150&where=Cagliari,%20Italia">
-                                            <img src="viaggio_avventura/barca.jpg" alt="Barca">
-                                            <figcaption>Barca</figcaption>
-                                        </a>
-                                    </figure>
-                                </div>
-                            `;
-                        } else if (vacationType === 'cultura') {
-                            content = `
-                                <p>${data.visitCulture}</p>
-                                <div class="image-grid">
-                                    <figure>
-                                        <a href="https://cagliariturismo.comune.cagliari.it/it/vivicagliari/villa-di-tigellio">
-                                            <img src="viaggio_cultura/archeologia.webp" alt="villa Tigellio">
-                                            <figcaption>Villa Tigellio</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.google.it/maps/place/Santuario+di+Nostra+Signora+di+Bonaria/@39.2083168,9.1229017,684m/data=!3m2!1e3!4b1!4m6!3m5!1s0x12e73414cf670abd:0x93e6a7a45929876c!8m2!3d39.2083168!4d9.1254766!16s%2Fg%2F1226slf5?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D">
-                                            <img src="viaggio_cultura/bonaria.jpg" alt="Bonaria">
-                                            <figcaption>Bonaria</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.google.it/maps/place/Cittadella+dei+Musei/@39.2220777,9.1120855,17z/data=!3m1!4b1!4m6!3m5!1s0x12e7354a8824d3cf:0xc90f1668a683be6b!8m2!3d39.2220778!4d9.1169564!16s%2Fg%2F122x7v1r?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D">
-                                            <img src="viaggio_cultura/Museo.jpg" alt="Musei">
-                                            <figcaption>Citadella dei Musei</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.google.it/maps/place/Orto+Botanico+di+Cagliari/@39.2214479,9.1075884,16z/data=!3m1!4b1!4m6!3m5!1s0x12e7340537f72d05:0x76b4c1111c63297b!8m2!3d39.2214479!4d9.1101633!16s%2Fm%2F03ykhd9?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D">
-                                            <img src="viaggio_cultura/ortobotanico.png" alt="ortobotanico">
-                                            <figcaption>Orto Botanico</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.teatroliricodicagliari.it/it/">
-                                            <img src="viaggio_cultura/teatro.jpg" alt="Teatro Lirico">
-                                            <figcaption>Teatro Lirico</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://teatromassimocagliari.it/">
-                                            <img src="viaggio_cultura/teatromassimo.jpg" alt="Teatro Massimo">
-                                            <figcaption>Teatro Massimo</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.sardegnaturismo.it/it/esplora/anfiteatro-romano-di-cagliari">
-                                            <img src="viaggio_cultura/teatroromano.jpg" alt="Teatro Romano">
-                                            <figcaption>Teatro Romano</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.comune.cagliari.it/portale/page/it/parco_di_tuvixeddu?contentId=LGO12342">
-                                            <img src="viaggio_cultura/Tuvixeddu.webp" alt="Tuvixeddu">
-                                            <figcaption>Tuvixeddu</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://cagliariturismo.comune.cagliari.it/it/vivicagliari/cattedrale-di-santa-maria-e-torre-campanaria">
-                                            <img src="viaggio_cultura/santamaria.jpg" alt="Santa Maria">
-                                            <figcaption>Santa Maria</figcaption>
-                                        </a>
-                                    </figure>
-                                </div>
-                            `;
-                        } else if (vacationType === 'relax') {
-                            content = `
-                                <p>${data.relaxBeaches}</p>
-                                <div class="image-grid">
-                                    <figure>
-                                        <a href="https://www.google.it/maps/place/Spiaggia+del+Poetto/@39.2113745,9.1742161,14z/data=!3m1!4b1!4m6!3m5!1s0x12e0cb51ddbbeddb:0x6faa2e32c94fb2a0!8m2!3d39.2134183!4d9.1757159!16s%2Fm%2F04jhhrx?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D">
-                                            <img src="viaggio_relax/poetto.jpg" alt="Spiaggia del Poetto">
-                                            <figcaption>Poetto</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.tripadvisor.it/Restaurant_Review-g187881-d10147675-Reviews-Terra_Mari-Cagliari_Province_of_Cagliari_Sardinia.html">
-                                            <img src="viaggio_relax/terraemari.avif" alt="Terra e Mari">
-                                            <figcaption>Terra e Mari</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.tripadvisor.it/Restaurant_Review-g187881-d27130378-Reviews-Il_Melograno_nel_Corso-Cagliari_Province_of_Cagliari_Sardinia.html">
-                                            <img src="viaggio_relax/tziulillucu.jpg" alt="Spiaggia del Poetto">
-                                            <figcaption>Il Melograno</figcaption>
-                                        </a>
-                                    </figure>
-                                    <figure>
-                                        <a href="https://www.google.it/maps/place/Spiaggia+di+Calamosca/@39.1865246,9.1491332,17z/data=!4m10!1m2!2m1!1sSpiaggia+di+calamosca!3m6!1s0x12e73308b8766f51:0x8205b928aa021bbb!8m2!3d39.1865246!4d9.1517081!15sChVTcGlhZ2dpYSBkaSBjYWxhbW9zY2GSARJ0b3VyaXN0X2F0dHJhY3Rpb27gAQA!16s%2Fg%2F11mvs6kw40?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D">
-                                            <img src="viaggio_relax/calamosca.jpg" alt="Cala Mosca">
-                                            <figcaption>Cala Mosca</figcaption>
-                                        </a>
-                                    </figure>
-                                </div>
-                            `;
-                        }
-
-                        $('#vacation-content').html(content);
-                        $('#overlay').fadeOut(); // Rimuovi l'overlay
-                        $('#main-content').removeClass('blur'); // Rimuovi l'effetto sfocato
-                    });
-                });
-            }
-
-            // Gestione click per selezionare la lingua
-            $('.flag-icon').click(function() {
-                const lang = $(this).data('lang');
-                loadTranslation(lang); // Carica il file JSON della lingua selezionata
-            });
-        });
-    </script>
+  <!-- Inclusione del file JS esterno -->
+  <script src="script.js"></script>
 </body>
 </html>
+
 
