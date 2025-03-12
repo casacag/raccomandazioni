@@ -168,7 +168,17 @@
 .vacation-option:hover {
     background-color: #ff385c;
 }
-
+.btn_check {
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
 /* Griglia di immagini */
 .image-grid {
     display: flex;
