@@ -21,7 +21,7 @@ $(document).ready(function() {
         $('header h1').text(data.headerTitle);
         $('header p').text(data.headerSubtitle);
         $('#suggestions h2').text(data.yourRecommendations);
-        $('#home a').text(data.home);
+        //$('#home a').text(data.home);
         $('#footerMessage').text(data.footerMesssage);
   
         // Gestione click sulle opzioni di vacanza
