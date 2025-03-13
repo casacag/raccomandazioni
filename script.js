@@ -28,7 +28,8 @@ $(document).ready(function() {
         $('.vacation-option').off('click').on('click', function() {
           const vacationType = $(this).data('vacation');
           let content = '';
-          if (vacationType === 'avventura') {
+          if (vacationType === 'avventura') 
+            content = `<p>${data.exploreAdventure}</p><div class="image-grid">
             <div class="image-grid">
               <figure>
                 <a href="https://savanzadaclimbing.it/" class="open-modal" data-image="viaggio_avventura/arrampicata.jpeg" data-description="${data.arrampicata}">
