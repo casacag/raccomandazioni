@@ -21,15 +21,15 @@ $(document).ready(function() {
         $('header h1').text(data.headerTitle);
         $('header p').text(data.headerSubtitle);
         $('#suggestions h2').text(data.yourRecommendations);
-        //$('#home a').text(data.home);
+        $('#home a').text(data.home);
         $('#footerMessage').text(data.footerMesssage);
   
         // Gestione click sulle opzioni di vacanza
         $('.vacation-option').off('click').on('click', function() {
           const vacationType = $(this).data('vacation');
           let content = '';
-          if (vacationType === 'avventura') 
-            content = `<p>${data.exploreAdventure}</p><div class="image-grid">
+          if (vacationType === 'avventura') {
+            content = `<p>${data.exploreAdventure}</p>
             <div class="image-grid">
               <figure>
                 <a href="https://savanzadaclimbing.it/" class="open-modal" data-image="viaggio_avventura/arrampicata.jpeg" data-description="${data.arrampicata}">
